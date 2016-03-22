@@ -1,0 +1,60 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "org.sonarqube.gradle:gradle-sonarqube-plugin:1.1"
+        classpath 'com.github.maiflai:gradle-scalatest:0.10'
+        classpath 'org.scoverage:gradle-scoverage:1.0.9'
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
+
+apply plugin: "java"
+apply plugin: 'jacoco'
+apply plugin: "org.sonarqube"
+apply plugin: 'scala'
+apply plugin: "com.github.maiflai.scalatest"
+apply plugin: 'scoverage'
+
+
+
+
+tasks.withType(Test)  {
+    maxParallelForks = 1
+}
+dependencies {
+
+    scoverage "org.scoverage:scalac-scoverage-plugin_2.11:1.1.0"
+    scoverage "org.scoverage:scalac-scoverage-runtime_2.11:1.1.0"
+
+    runtime "org.scala-lang:scala-compiler:2.11.7"
+    compile "org.scala-lang:scala-library:2.11.7"
+
+    testCompile "junit:junit:4.12"
+    testCompile "org.scalatest:scalatest_2.11:2.2.5"
+    testRuntime "org.pegdown:pegdown:1.1.0"
+}
+
+version = "1.0.0.0"
+
+
+sonarqube {
+    properties {
+
+        property "sonar.tests", "src/test/scala"
+        property "sonar.java.test.binaries", "$buildDir/classes/test"
+
+        property "sonar.junit.reportsPath", "$buildDir/test-results"
+        property "sonar.dynamicAnalysis", "reuseReports"
+
+        property "sonar.sourceEncoding", "UTF-8"
+    }
+}

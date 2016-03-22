@@ -1,0 +1,6 @@
+
+rootProject.name = 'sonar-scala-demo'
+
+include 'sonar-java-junit-jacoco'
+include 'sonar-java-scalatest-jacoco'
+include 'sonar-scala-scalatest-scoverage'
