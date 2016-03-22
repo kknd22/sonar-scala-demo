@@ -6,12 +6,12 @@ To generate the sonar report, run
     
 Tested on sonar 5.1.2, which has the following plugins installed:
 
-Java 3.7.1
-Scalastyle 0.0.1-SNAPSHOT
-Scoverage 5.1.1
-
-Checkstyle 2.4
-Findbugs 3.3
+Java 3.7.1  
+Scalastyle 0.0.1-SNAPSHOT  
+Scoverage 5.1.1  
+  
+Checkstyle 2.4  
+Findbugs 3.3  
 
 
 
