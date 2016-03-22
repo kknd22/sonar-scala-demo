@@ -55,6 +55,8 @@ sonarqube {
         property "sonar.junit.reportsPath", "$buildDir/test-results"
         property "sonar.dynamicAnalysis", "reuseReports"
 
-        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.scoverage.reportPath", "$buildDir/reports/scoverage/scoverage.xml"
     }
 }
+
+tasks["sonarqube"].dependsOn reportScoverage
