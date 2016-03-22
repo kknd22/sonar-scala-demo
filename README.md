@@ -14,6 +14,9 @@ Checkstyle 2.4
 Findbugs 3.3  
 
 
+sample sonar snapshot with red circled area indicating missing data.
+https://github.com/kknd22/sonar-scala-demo/blob/master/sonar-scala-issues-diagram.png
+
 
 
 
